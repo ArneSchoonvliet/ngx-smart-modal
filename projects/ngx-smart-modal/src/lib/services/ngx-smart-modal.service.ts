@@ -248,10 +248,12 @@ export class NgxSmartModalService {
       if (typeof options.ariaDescribedBy === 'string') { componentRef.instance.ariaDescribedBy = options.ariaDescribedBy; }
       if (typeof options.refocus === 'boolean') { componentRef.instance.refocus = options.refocus; }
 
-      this._appRef.attachView(componentRef.hostView);
+      // this._appRef.attachView(componentRef.hostView);
 
-      const domElem = (componentRef.hostView as EmbeddedViewRef<any>).rootNodes[0] as HTMLElement;
-      this._document.body.appendChild(domElem);
+      // componentRef.changeDetectorRef.detectChanges();
+
+      // const domElem = (componentRef.hostView as EmbeddedViewRef<any>).rootNodes[0] as HTMLElement;
+      // this._document.body.appendChild(domElem);
 
       return componentRef.instance;
     }
@@ -500,6 +502,6 @@ export class NgxSmartModalService {
       return;
     }
 
-    this._document.body.removeChild(modal.elementRef.nativeElement);
+    // this._document.body.removeChild(modal.elementRef.nativeElement);
   }
 }
